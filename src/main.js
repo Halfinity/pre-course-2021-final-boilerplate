@@ -10,7 +10,7 @@ if (localStorage.getItem("taskArr") === null) {
 } else {
   let priority = document.getElementById("priority-selector").value;
   taskArr = JSON.parse(localStorage.getItem("taskArr"));
-  printViewSection(taskArr);
+  myViewSection(taskArr);
 }
 
 const countText = document.getElementById("counter");
@@ -75,10 +75,10 @@ sortButton.addEventListener("click", () => {
       }
     }
   }
-  printViewSection(newArr);
+  myViewSection(newArr);
 });
 
-function printViewSection(arr) {
+function myViewSection(arr) {
   viewSection.innerText = "";
 
   for (let i = 0; i < arr.length; i++) {
