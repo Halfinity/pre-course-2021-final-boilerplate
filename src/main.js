@@ -45,4 +45,66 @@ priority: priority,
 date: new Date().toDateString(),
 task: task,
 });
+
+
+let newArr = JSON.parse(localStorage.getItem("taskArr"));
+
+  newArr.push({
+    priority: priority,
+    date: new Date().toDateString(),
+    task: task,
+  });
+
+  localStorage.setItem("taskArr", JSON.stringify(newArr));
+  countText.innerText = `${JSON.parse(localStorage.getItem("taskArr")).length}`;
 });
+
+sortButton.addEventListener("click", () => {
+  let newArr = [];
+  for (let j = 5; j >= 1; j--) {
+    for (let i = 0; i < taskArr.length; i++) {
+      if (Number(taskArr[i].priority) === j) {
+        newArr.push(taskArr[i]);
+      }
+    }
+  }
+  printViewSection(newArr);
+});
+
+function printViewSection(arr) {
+  viewSection.innerText = "";
+
+  for (let i = 0; i < arr.length; i++) {
+    const pin = document.createElement("div");
+    pin.className = "pin";
+    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    pin.style.backgroundColor = `#${randomColor}`;
+    const todoContainer = document.createElement("div");
+    todoContainer.className = "todo-container";
+
+    const priorityDiv = document.createElement("div");
+    priorityDiv.innerHTML = arr[i].priority;
+    priorityDiv.className = "todo-priority";
+
+    const color = colorTask(arr[i].priority);
+    todoContainer.style.backgroundColor = color;
+
+    const createdAtDiv = document.createElement("div");
+    createdAtDiv.innerHTML = arr[i].date;
+    createdAtDiv.className = "todo-created-at";
+
+    const textDiv = document.createElement("div");
+    textDiv.innerHTML = arr[i].task;
+    textDiv.className = "todo-text";
+    todoContainer.append(pin, priorityDiv, createdAtDiv, textDiv);
+    viewSection.appendChild(todoContainer);
+  }
+}
+
+if (localStorage.getItem("taskArr") === null) {
+    localStorage.setItem("taskArr", "[]");
+  } else {
+    let priority = document.getElementById("priority-selector").value;
+    taskArr = JSON.parse(localStorage.getItem("taskArr"));
+    printViewSection(taskArr);
+  }
