@@ -1,10 +1,10 @@
 const textInput = document.getElementById("text-input");
 const addButton = document.getElementById("add-button");
 const sortButton = document.getElementById("sort-button");
+const deleteButton = document.getElementById("delete-button");
 const viewSection = document.getElementById("view-section");
 let taskArr = [];
 
-//if the local storage is empty set empty tasks array else save in the LS
 if (localStorage.getItem("taskArr") === null) {
   localStorage.setItem("taskArr", "[]");
 } else {
@@ -17,10 +17,6 @@ const countText = document.getElementById("counter");
 countText.innerText = `${JSON.parse(localStorage.getItem("taskArr")).length}`;
 
 addButton.addEventListener("click", () => {
-  const pin = document.createElement("div");
-  pin.className = "pin";
-  var randomColor = Math.floor(Math.random() * 16777215).toString(16);
-  pin.style.backgroundColor = `#${randomColor}`;
   const task = textInput.value;
   if (task === "" || task === " ") {
     return;
@@ -35,8 +31,6 @@ addButton.addEventListener("click", () => {
   priorityDiv.innerHTML = priority;
   priorityDiv.className = "todo-priority";
 
-
-
   const createdAtDiv = document.createElement("div");
   createdAtDiv.innerHTML = new Date().toDateString();
   createdAtDiv.className = "todo-created-at";
@@ -45,7 +39,7 @@ addButton.addEventListener("click", () => {
   textDiv.innerHTML = task;
   textDiv.className = "todo-text";
 
-  todoContainer.append(pin, priorityDiv, createdAtDiv, textDiv);
+  todoContainer.append(priorityDiv, createdAtDiv, textDiv);
   viewSection.appendChild(todoContainer);
 
   taskArr.push({
@@ -82,10 +76,6 @@ function myViewSection(arr) {
   viewSection.innerText = "";
 
   for (let i = 0; i < arr.length; i++) {
-    const pin = document.createElement("div");
-    pin.className = "pin";
-    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    pin.style.backgroundColor = `#${randomColor}`;
     const todoContainer = document.createElement("div");
     todoContainer.className = "todo-container";
 
@@ -100,7 +90,7 @@ function myViewSection(arr) {
     const textDiv = document.createElement("div");
     textDiv.innerHTML = arr[i].task;
     textDiv.className = "todo-text";
-    todoContainer.append(pin, priorityDiv, createdAtDiv, textDiv);
+    todoContainer.append(priorityDiv, createdAtDiv, textDiv);
     viewSection.appendChild(todoContainer);
   }
 }
