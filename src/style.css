@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #d2e3ed;
+}
+
+#priority-selector {
+  background-color: #e6e335;
+  border-radius: 50px;
+  border-width: 0;
+  box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 1em;
+  height: 50px;
+  padding: 0 25px;
+  text-align: center;
+  transition: all 200ms;
+}
+
+#text-input {
+  background-color: #e0ca9f;
+  border-radius: 30px;
+  border-width: 0;
+  box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
+  color: rgb(0, 0, 0);
+  display: inline-block;
+  font-family: Arial;
+  font-size: 1em;
+  height: 30px;
+  padding: 0 25px;
+  text-align: center;
+}
+
+#add-button {
+  background-color: #4244c2;
+  border-radius: 50px;
+  border-width: 0;
+  box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 1em;
+  height: 50px;
+  padding: 0 25px;
+  text-align: center;
+  transition: all 200ms;
+}
+
+#sort-button {
+  background-color: #2a5c12;
+  border-radius: 50px;
+  border-width: 0;
+  box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 1em;
+  height: 50px;
+  padding: 0 25px;
+  text-align: center;
+  transition: all 200ms;
+}
+
+#control-section,
+#view-section,
+h1 {
+  text-align: center;
+}
