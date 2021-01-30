@@ -1,18 +1,27 @@
+@font-face {
+  font-family: "neon-tubes-2-regular";
+  src: url("https://assets.codepen.io/2585/NeonTubes2.otf") format("woff"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("opentype"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
-body {
-  background: #d2e3ed;
+html {
+  background-image: url(https://static.videezy.com/system/resources/thumbnails/000/051/733/original/Line-neon-border-motion-racing-on-black-screen.jpg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #priority-selector {
-  background-color: #e6e335;
-  border-radius: 50px;
-  border-width: 0;
-  box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
-  color: rgb(0, 0, 0);
+  border: none;
+  background-color: #eeea1f;
+  box-shadow: 0 0 5px #eeea1f;
   cursor: pointer;
   display: inline-block;
   font-family: Arial;
@@ -21,11 +30,21 @@ body {
   padding: 0 25px;
   text-align: center;
   transition: all 200ms;
+  border-radius: 50px;
+  border-width: 0;
+  font-weight: bold;
+  font-family: "neon-tubes-2-regular";
+  src: url("https://assets.codepen.io/2585/NeonTubes2.otf") format("woff"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("opentype"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("truetype");
+}
+#priority-selector:hover {
+  box-shadow: 0 0 10px #eeea1f, 0 0 20px #eeea1f, 0 0 20px #fff inset;
 }
 
 #text-input {
-  background-color: #e0ca9f;
-  border-radius: 30px;
+  background-color: #ffffff;
+  border-radius: 50px;
   border-width: 0;
   box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
   color: rgb(0, 0, 0);
@@ -33,16 +52,14 @@ body {
   font-family: Arial;
   font-size: 1em;
   height: 30px;
-  padding: 0 25px;
+  padding: 0 150px;
   text-align: center;
 }
 
 #add-button {
-  background-color: #4244c2;
-  border-radius: 50px;
-  border-width: 0;
-  box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
-  color: rgb(255, 255, 255);
+  border: none;
+  background-color: #5048c2;
+  box-shadow: 0 0 5px #5048c2;
   cursor: pointer;
   display: inline-block;
   font-family: Arial;
@@ -51,14 +68,23 @@ body {
   padding: 0 25px;
   text-align: center;
   transition: all 200ms;
+  border-radius: 50px;
+  border-width: 0;
+  font-weight: bold;
+  font-family: "neon-tubes-2-regular";
+  src: url("https://assets.codepen.io/2585/NeonTubes2.otf") format("woff"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("opentype"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("truetype");
+}
+
+#add-button:hover {
+  box-shadow: 0 0 10px #5048c2, 0 0 20px #5048c2, 0 0 20px #fff inset;
 }
 
 #sort-button {
-  background-color: #2a5c12;
-  border-radius: 50px;
-  border-width: 0;
-  box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
-  color: rgb(255, 255, 255);
+  border: none;
+  background-color: #32b96a;
+  box-shadow: 0 0 5px #32b96a;
   cursor: pointer;
   display: inline-block;
   font-family: Arial;
@@ -67,10 +93,113 @@ body {
   padding: 0 25px;
   text-align: center;
   transition: all 200ms;
+  border-radius: 50px;
+  border-width: 0;
+  font-weight: bold;
+  font-family: "neon-tubes-2-regular";
+  src: url("https://assets.codepen.io/2585/NeonTubes2.otf") format("woff"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("opentype"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("truetype");
+}
+#sort-button:hover {
+  box-shadow: 0 0 10px #32b96a, 0 0 20px #32b96a, 0 0 20px #fff inset;
+}
+
+#clear-button {
+  border: none;
+  background-color: #c93939;
+  box-shadow: 0 0 5px #c93939;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 1em;
+  height: 50px;
+  padding: 0 25px;
+  text-align: center;
+  transition: all 200ms;
+  border-radius: 50px;
+  border-width: 0;
+  font-weight: bold;
+  font-family: "neon-tubes-2-regular";
+  src: url("https://assets.codepen.io/2585/NeonTubes2.otf") format("woff"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("opentype"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("truetype");
+}
+#clear-button:hover {
+  box-shadow: 0 0 10px #c93939, 0 0 20px #c93939, 0 0 20px #fff inset;
 }
 
 #control-section,
 #view-section,
-h1 {
+#title {
   text-align: center;
+}
+
+#title {
+  font-size: 80px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  line-height: 2em;
+  font-family: "neon-tubes-2-regular";
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000,
+      0 0 40px #000000, 0 0 50px #684dff, 0 0 60px #684dff, 0 0 70px #684dff;
+  }
+  to {
+    text-shadow: 0 0 20px #eeeeee, 0 0 30px #684dff, 0 0 40px #684dff,
+      0 0 50px #3040d8, 0 0 60px #6e4dff, 0 0 70px #684dff, 0 0 80px #684dff;
+  }
+}
+
+#view-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100rem;
+  height: 40rem;
+  margin: 20px auto;
+  border: 1px solid white;
+  box-shadow: 0 0 5px #fff, inset 0 0 5px #fff, 0 0 20px #5600ff,
+    inset 0 0 20px #5600ff;
+}
+
+.todo-container {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 10%;
+  padding: 10px;
+  float: left;
+  font-size: 13px;
+  color: white;
+  text-shadow: -1px -1px 3px #fff, 1px 1px 3px #fff, 0 0 5px #5600ff,
+    0 0 8px #5600ff, 0 0 11px #5600ff, 0 0 14px #5600ff, 0 0 17px #5600ff;
+  font-family: "neon-tubes-2-regular";
+  src: url("https://assets.codepen.io/2585/NeonTubes2.otf") format("woff"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("opentype"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("truetype");
+}
+
+h3 {
+  font-size: 20px;
+  color: #00eeff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  line-height: 2em;
+  font-family: "neon-tubes-2-regular";
+}
+
+#counter {
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  font-family: "neon-tubes-2-regular";
 }
