@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My TODO List</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Light.css">
     <script src="utils.js"></script>
   </head>
   <body>
@@ -22,6 +23,13 @@
         <input type="text" name="task" id="text-input" />
         <button id="add-button">Add</button>
         <button id="sort-button">Sort</button>
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+        </label>
+        <em>Enable light Mode!</em>
+      </div>
       </div>
       <h3>Total Tasks:</h3>
       <span id="counter"></span>
