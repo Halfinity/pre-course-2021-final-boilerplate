@@ -1,7 +1,7 @@
 const textInput = document.getElementById("text-input");
 const addButton = document.getElementById("add-button");
 const sortButton = document.getElementById("sort-button");
-const deleteButton = document.getElementById("delete-button");
+const clearButton = document.getElementById("clear-button");
 const viewSection = document.getElementById("view-section");
 let taskArr = [];
 
@@ -50,6 +50,7 @@ addButton.addEventListener("click", () => {
 
   let newArr = JSON.parse(localStorage.getItem("taskArr"));
 
+  newArr = newArr || [];
   newArr.push({
     priority: priority,
     date: new Date().toDateString(),
@@ -94,3 +95,10 @@ function myViewSection(arr) {
     viewSection.appendChild(todoContainer);
   }
 }
+
+clearButton.addEventListener("click", () =>{ 
+  localStorage.clear();
+  viewSection.innerHTML = " ";
+  counter.textContent = 0;
+  newArr = [];
+});
