@@ -30,12 +30,8 @@ a {
 .theme-switch-wrapper {
   display: flex;
   align-items: center;
-
-  em {
-    margin-left: 10px;
-    font-size: 1rem;
-  }
 }
+
 .theme-switch {
   display: inline-block;
   height: 34px;
@@ -48,7 +44,7 @@ a {
 }
 
 .slider {
-  background-color: #ccc;
+  background-color: rgb(151, 142, 142);
   bottom: 0;
   cursor: pointer;
   left: 0;
@@ -83,4 +79,11 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+em {
+  font-family: "neon-tubes-2-regular";
+  src: url("https://assets.codepen.io/2585/NeonTubes2.otf") format("woff"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("opentype"),
+    url("https://assets.codepen.io/2585/NeonTubes2.otf") format("truetype");
 }
