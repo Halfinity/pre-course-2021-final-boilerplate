@@ -100,7 +100,7 @@ clearButton.addEventListener("click", () =>{
   localStorage.clear();
   viewSection.innerHTML = " ";
   counter.textContent = 0;
-  newArr = [];
+  taskArr = [];
 });
 
 
