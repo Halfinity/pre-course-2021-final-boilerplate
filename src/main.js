@@ -3,18 +3,17 @@ const addButton = document.getElementById("add-button");
 const sortButton = document.getElementById("sort-button");
 const clearButton = document.getElementById("clear-button");
 const viewSection = document.getElementById("view-section");
-let taskArr = [];
-
+let taskArr = []; 
+let priority = document.getElementById("priority-selector").value;// Maybe need it.
 if (localStorage.getItem("taskArr") === null) {
   localStorage.setItem("taskArr", "[]");
 } else {
-  let priority = document.getElementById("priority-selector").value;
   taskArr = JSON.parse(localStorage.getItem("taskArr"));
   myViewSection(taskArr);
 }
 
 const countText = document.getElementById("counter");
-countText.innerText = `${JSON.parse(localStorage.getItem("taskArr")).length}`;
+countText.innerText = JSON.parse(localStorage.getItem("taskArr")).length;
 
 addButton.addEventListener("click", () => {
   const task = textInput.value;
