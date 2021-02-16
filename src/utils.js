@@ -1,21 +1,18 @@
 const API_KEY = "$2b$10$27md03GcHwr8lZA3RWWylugyaJawIZEQ0qlbU.3Lo3GsA8jJw7.u6"; // Assign this variable to your JSONBIN.io API key if you choose to use it.
 const DB_NAME = "my-todo";
-const URL = "https://api.jsonbin.io/v3/b/602a88fff460fe73a196fc5d/latest";
+const URL = "https://api.jsonbin.io/v3/b/602a88fff460fe73a196fc5d";
 
 // Gets data from persistent storage by the given key and returns it
 async function getPersistent(key) {
   const init = {
     method: "GET",
     headers: {
-      "X-Master-Key": API_KEY
-    }
+      "X-Master-Key": API_KEY,
+    },
   };
-  const request = new Request(URL, init);
-  const viewSection = document.querySelector('#view-section');
-  viewSection.innerHTML = `<div class="loader"></div>`;
+  const request = new Request(URL + "/latest", init);
   let data = await fetch(request);
   data = await data.json();
-  viewSection.innerHTML = '';
   return data.record[key];
 }
 
@@ -29,11 +26,12 @@ async function setPersistent(key, data) {
     headers: {
       "X-Master-Key": API_KEY,
       "Content-Type": "application/json",
-      "X-Bin-Versioning": false
+      "X-Bin-Versioning": false,
     },
-    body: JSON.stringify(dataObj)
+    body: JSON.stringify(dataObj),
   };
   const request = new Request(URL, init);
   let response = await fetch(request);
+  console.log(response);
   return response.ok;
 }

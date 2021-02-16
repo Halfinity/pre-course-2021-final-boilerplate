@@ -3,61 +3,66 @@ const addButton = document.getElementById("add-button");
 const sortButton = document.getElementById("sort-button");
 const clearButton = document.getElementById("clear-button");
 const viewSection = document.getElementById("view-section");
-let taskArr = []; 
-let priority = document.getElementById("priority-selector").value;// Maybe need it.
-if (localStorage.getItem("taskArr") === null) {
-  localStorage.setItem("taskArr", "[]");
-} else {
-  taskArr = JSON.parse(localStorage.getItem("taskArr"));
-  myViewSection(taskArr);
-}
-
 const countText = document.getElementById("counter");
-countText.innerText = JSON.parse(localStorage.getItem("taskArr")).length;
+let taskArr = [];
+const myTodo = "my-todo";
+getPersistent(myTodo)
+  .then((result) => {
+    taskArr = result;
+    console.log(result);
+    countText.innerText = result.length;
+    myViewSection(taskArr);
+  })
+  .catch((error) => {
+    countText.innerText = 0;
+    alert("Error");
+    console.error(error);
+  });
 
-addButton.addEventListener("click", () => {
+addButton.addEventListener("click", async () => {
   const task = textInput.value;
   if (task === "" || task === " ") {
     return;
   }
-  textInput.value = "";
-
   let priority = document.getElementById("priority-selector").value;
-  const todoContainer = document.createElement("div");
-  todoContainer.className = "todo-container";
-
-  const priorityDiv = document.createElement("div");
-  priorityDiv.innerHTML = priority;
-  priorityDiv.className = "todo-priority";
-
-  const createdAtDiv = document.createElement("div");
-  createdAtDiv.innerHTML = new Date().toDateString();
-  createdAtDiv.className = "todo-created-at";
-
-  const textDiv = document.createElement("div");
-  textDiv.innerHTML = task;
-  textDiv.className = "todo-text";
-
-  todoContainer.append(priorityDiv, createdAtDiv, textDiv);
-  viewSection.appendChild(todoContainer);
-
-  taskArr.push({
+  const taskArrCopy = [...taskArr];
+  taskArrCopy.push({
     priority: priority,
     date: new Date().toDateString(),
     task: task,
   });
+  try {
+    const success = await setPersistent(myTodo, taskArrCopy);
+    if (!success) {
+      throw new Error("Not Success");
+    }
+    let value = Number(countText.innerText);
+    value++;
+    countText.innerText = Number(countText.innerText) + 1;
+    textInput.value = "";
+    taskArr = taskArrCopy;
 
-  let newArr = JSON.parse(localStorage.getItem("taskArr"));
+    const todoContainer = document.createElement("div");
+    todoContainer.className = "todo-container";
 
-  newArr = newArr || [];
-  newArr.push({
-    priority: priority,
-    date: new Date().toDateString(),
-    task: task,
-  });
+    const priorityDiv = document.createElement("div");
+    priorityDiv.innerHTML = priority;
+    priorityDiv.className = "todo-priority";
 
-  localStorage.setItem("taskArr", JSON.stringify(newArr));
-  countText.innerText = `${JSON.parse(localStorage.getItem("taskArr")).length}`;
+    const createdAtDiv = document.createElement("div");
+    createdAtDiv.innerHTML = new Date().toDateString();
+    createdAtDiv.className = "todo-created-at";
+
+    const textDiv = document.createElement("div");
+    textDiv.innerHTML = task;
+    textDiv.className = "todo-text";
+
+    todoContainer.append(priorityDiv, createdAtDiv, textDiv);
+    viewSection.appendChild(todoContainer);
+  } catch (error) {
+    console.log(error);
+    alert("PROBLEM");
+  }
 });
 
 sortButton.addEventListener("click", () => {
@@ -95,48 +100,47 @@ function myViewSection(arr) {
   }
 }
 
-clearButton.addEventListener("click", () =>{ 
-  localStorage.clear();
+clearButton.addEventListener("click", () => {
+  setPersistent(myTodo, []);
   viewSection.innerHTML = " ";
   counter.textContent = 0;
   taskArr = [];
 });
 
-
-
 // ------------DARK/LIGHT MODE-------------------------
 
-const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-
-function switchTheme(e) {
-    if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'light');
-    }
-    else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-    }    
-}
-
-toggleSwitch.addEventListener('change', switchTheme, false);
+const toggleSwitch = document.querySelector(
+  '.theme-switch input[type="checkbox"]'
+);
 
 function switchTheme(e) {
   if (e.target.checked) {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'dark'); 
+    document.documentElement.setAttribute("data-theme", "light");
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
   }
-  else {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark'); 
-  }    
 }
 
+toggleSwitch.addEventListener("change", switchTheme, false);
 
-const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+  }
+}
+
+const currentTheme = localStorage.getItem("theme")
+  ? localStorage.getItem("theme")
+  : null;
 
 if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
+  document.documentElement.setAttribute("data-theme", currentTheme);
 
-    if (currentTheme === 'light') {
-        toggleSwitch.checked = true;
-    }
+  if (currentTheme === "light") {
+    toggleSwitch.checked = true;
+  }
 }
