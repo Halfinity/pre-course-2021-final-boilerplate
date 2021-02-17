@@ -203,3 +203,12 @@ h3 {
   text-align: center;
   font-family: "neon-tubes-2-regular";
 }
+
+.todo-text {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  text-shadow: -1px -1px 3px #fff, 1px 1px 3px #fff, 0 0 5px #c78d11,
+    0 0 8px #c78d11, 0 0 11px #c78d11, 0 0 14px #c78d11, 0 0 17px #c78d11;
+  font-family: "neon-tubes-2-regular";
+}
