@@ -4,33 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My TODO List</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="Light.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Light.css" />
     <script src="utils.js"></script>
   </head>
   <body>
     <h1 id="title">To-Do List:</h1>
-    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWV9KyA92twJc" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <iframe
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1DWV9KyA92twJc"
+      width="300"
+      height="80"
+      frameborder="0"
+      allowtransparency="true"
+      allow="encrypted-media"
+    ></iframe>
     <div id="control-section">
       <div class="inputs">
         <button id="clear-button">Clear</button>
         <select id="priority-selector">
-          <option value="1" >1</option>
-          <option value="2" >2</option>
-          <option value="3" >3</option>
-          <option value="4" >4</option>
-          <option value="5" >5</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
         <input type="text" name="task" id="text-input" />
         <button id="add-button">Add</button>
         <button id="sort-button">Sort</button>
         <div class="theme-switch-wrapper">
           <label class="theme-switch" for="checkbox">
-              <input type="checkbox" id="checkbox" />
-              <div class="slider round"></div>
-        </label>
-        <em>Dark/Light Mode</em>
-      </div>
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+          </label>
+          <em>Dark/Light Mode</em>
+        </div>
       </div>
       <h3>Total Tasks:</h3>
       <span id="counter"></span>
